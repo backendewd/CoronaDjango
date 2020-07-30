@@ -43,7 +43,7 @@
                             {% with coronaData.data as data %}
                                 {% for countrie in countriesData %}
                                     {% if countrie.name == data.name %}
-                                        <div class="card card-corona text-center r-50">
+                                        <div class="card text-center r-50">
                                             <div class="card-header text-right">
                                                 <b>{{data.name}}</b>
                                                 <span class="icon"><img src='{{countrie.flag}}' class="img-fluid"></span>
