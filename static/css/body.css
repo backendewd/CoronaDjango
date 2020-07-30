@@ -58,3 +58,11 @@
   box-shadow: -3px 2px 5px black;
   width: 70%;
 }
+
+.card-corona{
+  width: 50%
+}
+
+@media screen and (max-width: 725px) {
+  .card-corona{width: 70% !important}
+}
