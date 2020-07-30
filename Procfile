@@ -1,1 +1,1 @@
-web: gunicorn webCorona.wsgi --log-file
+web: gunicorn webCorona.wsgi --log-file -
