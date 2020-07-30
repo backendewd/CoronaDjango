@@ -1,0 +1,1 @@
+web: gunicorn webCorona.wsgi --log-file
