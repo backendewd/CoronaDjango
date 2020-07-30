@@ -59,10 +59,10 @@
   width: 70%;
 }
 
-
+.card-corona{
+  width: 100% !important;
+}
 
 @media screen and (max-width: 725px) {
-  .font{
-    font-size: 15px;
-  }
+  .card-corona{width: 70% !important}
 }
