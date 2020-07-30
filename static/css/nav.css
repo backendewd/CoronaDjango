@@ -1,0 +1,87 @@
+ span{
+   margin-left: 10px;
+ }
+
+.brand{
+  font-size:30px;
+  font-weight: bold;
+  font-family: cursive, 'Courier New', Courier, monospace;
+  color:white;
+  position: absolute;
+  left: 45%;
+  margin-left: -40px !important;
+  display: block;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999 !important;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 45px;
+  }
+  
+  .sidenav .title {
+    padding: 0px 8px 0px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000;
+    display: block;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover,
+  .sidenav a:focus {
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+  }
+
+  .icon-home {
+    background-image: url('https://www.svgrepo.com/show/22031/home-icon-silhouette.svg');
+  }
+
+  .icon-flag {
+    background-image: url('https://img.icons8.com/ios-filled/2x/empty-flag.png');
+  }
+
+  .icon-human {
+    background-image: url('https://www.svgrepo.com/show/121657/user-silhouette.svg');
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  @media screen and (max-width: 725px) {
+    .brand{left: 33%;margin-left: -30px !important;}
+  }

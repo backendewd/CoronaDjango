@@ -1,0 +1,107 @@
+{% extends 'formbase.html' %}
+
+{% block page_title %}
+    Corona Web
+{% endblock page_title %}
+
+{% block nav %}
+    <div id="mySidenav" class="sidenav">
+        <p class="title">Menu</p>
+        <hr width="100%" style="color: black">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        {% for url, name, icon in data %}
+            <a href="{{url}}">
+                <span class="icon {{icon}}"></span>
+                {{name}}
+            </a>
+        {% endfor %}
+    </div>
+    <nav class="navbar navbar-light bg-primary justify-content-between sticky-top" style="z-index: 1">
+        <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+        <span class="brand">
+            Corona Django
+        </span>
+    </nav>
+{% endblock nav %}
+
+{% block body %}
+    <div class="bg-primary" style="height: 450px; width: 100;">
+        <div id="carouselExampleIndicators" class="carousel slide center-v2" data-ride="carousel">
+            {% if not dataEmpty %}
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+            {% endif %}
+            <div class="carousel-inner">
+            {% if not dataEmpty %}
+                {% for carousel in carousel %}
+                    <div class="carousel-item {% if carousel.id == 1 %}active{% endif %}">
+                        {% if not dataGlobal %}
+                            {% with coronaData.data as data %}
+                                {% for countrie in countriesData %}
+                                    {% if countrie.name == data.name %}
+                                        <div class="card text-center r-50">
+                                            <div class="card-header text-right">
+                                                <b>{{data.name}}</b>
+                                                <span class="icon"><img src='{{countrie.flag}}' class="img-fluid"></span>
+                                            </div>
+                                            <div class="card-body {{carousel.color}} font">
+                                                <span class='icon-body {{carousel.icon}}'></span>
+                                                <h3 class="card-text">
+                                                    {% if carousel.id == 1 %}{{data.latest_data.confirmed}}
+                                                    {% elif carousel.id == 2 %}{{data.latest_data.deaths}}
+                                                    {% else %}{{data.latest_data.recovered}}
+                                                    {% endif %}
+                                                </h3>
+                                                <h3 class="card-title" style="line-height: 0.3"><b>{{carousel.title}}</b></h3>
+                                            </div>
+                                            <div class="card-footer text-muted">
+                                                {{data.updated_at}}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endwith %}
+                        {% else %}
+                            <div class="card text-center r-50">
+                                <div class="card-header text-right">
+                                    <b>World</b>
+                                    <span class="icon"><img src='https://www.svgrepo.com/show/234796/world.svg' class="img-fluid"></span>
+                                </div>
+                                <div class="card-body {{carousel.color}} font">
+                                    <span class='icon-body {{carousel.icon}}'></span>
+                                    <h3 class="card-text">
+                                        {% if carousel.id == 1 %}{{coronaData.confirmed}}
+                                        {% elif carousel.id == 2 %}{{coronaData.deaths}}
+                                        {% else %}{{coronaData.recovered}}
+                                        {% endif %}
+                                    </h3>
+                                    <h3 class="card-title" style="line-height: 0.3"><b>{{carousel.title}}</b></h3>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    {{data.updated_at}}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="card text-center r-50">
+                    <div class="card-header">
+                        <b style="color: red">ERROR</b>
+                    </div>
+                    <div class="card-body font pt-5 pb-5">
+                        <b style="color: red;">Sorry This Country Not Have Data</b>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <b style="color: red">ERROR</b>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}

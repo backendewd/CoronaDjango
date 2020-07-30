@@ -1,0 +1,60 @@
+.center-v2{
+    margin: 0;
+    width: 50%;
+    height: 350px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.icon-body {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+}
+
+.r-50 {
+  border-radius: 50px !important;
+}
+
+.icon-death {
+    background-image: url('https://www.svgrepo.com/show/122385/tombstone.svg');
+  }
+
+.icon-recovery {
+  background-image: url('https://www.svgrepo.com/show/40211/health-care.svg');
+}
+
+.icon-virus {
+  background-image: url('https://www.svgrepo.com/show/71597/virus.svg');
+}
+
+.font {
+  font-family: cursive, 'Courier New', Courier, monospace;
+}
+
+.red-filter {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.green-filter {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(140deg) brightness(104%) contrast(97%);
+}
+
+.blue-filter {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(174deg) brightness(104%) contrast(97%);
+}
+
+.country{
+  width: 100%;
+  margin: 10px auto 0 auto;
+  transition: width 0.5s;
+  cursor: pointer;
+}
+
+.country:hover{
+  box-shadow: -3px 2px 5px black;
+  width: 70%;
+}

@@ -1,0 +1,40 @@
+{% extends 'formbase.html' %}
+
+{% block page_title %}
+    Corona Web
+{% endblock page_title %}
+
+{% block nav %}
+    <div id="mySidenav" class="sidenav">
+        <p class="title">Menu</p>
+        <hr width="100%" style="color: black">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        {% for url, name, icon in data %}
+            <a href="{{url}}">
+                <span class="icon {{icon}}"></span>
+                {{name}}
+            </a>
+        {% endfor %}
+    </div>
+    <nav class="navbar navbar-light bg-primary justify-content-between sticky-top" style="z-index: 1">
+        <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+        <span class="brand">
+            Corona Django
+        </span>
+    </nav>
+{% endblock nav %}
+
+{% block body %}
+    <h3 class="text-center font mt-2">List Country</h3>
+    {% for country in countriesData %}
+        <div class="card text-center r-50 country">
+            <a href="/country/{{country.alpha2Code}}/">
+                <div class="card-header">
+                    <b style="color: black">{{country.name}}</b>
+                    <span class="icon float-right"><img src='{{country.flag}}' class="img-fluid"></span>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+{% endblock body %}
