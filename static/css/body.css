@@ -59,6 +59,22 @@
   width: 70%;
 }
 
+.carousel-indicators2 {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+}
+
 @media screen and (max-width: 725px) {
   .center-v2{width: 70% !important}
 }

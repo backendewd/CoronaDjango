@@ -131,7 +131,7 @@ STATICFILES_DIRS = (
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ALLOWED_HOSTS = ['coronadjango.herokuapp.com']
+ALLOWED_HOSTS = ['coronadjango.herokuapp.com', '127.0.0.1']
 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)

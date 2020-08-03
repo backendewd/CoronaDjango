@@ -28,13 +28,6 @@
 {% block body %}
     <div class="bg-primary" style="height: 450px; width: 100;">
         <div id="carouselExampleIndicators" class="carousel slide center-v2" data-ride="carousel">
-            {% if not dataEmpty %}
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-            {% endif %}
             <div class="carousel-inner">
             {% if not dataEmpty %}
                 {% for carousel in carousel %}
@@ -42,7 +35,7 @@
                         {% if not dataGlobal %}
                             {% with coronaData.data as data %}
                                 {% for countrie in countriesData %}
-                                    {% if countrie.name == data.name %}
+                                    {% if countrie.alpha2Code == data.code %}
                                         <div class="card text-center r-50">
                                             <div class="card-header text-right">
                                                 <b>{{data.name}}</b>
@@ -59,7 +52,7 @@
                                                 <h3 class="card-title" style="line-height: 0.3"><b>{{carousel.title}}</b></h3>
                                             </div>
                                             <div class="card-footer text-muted">
-                                                {{data.updated_at}}
+                                                {{data.updated_at|slice:10}}
                                             </div>
                                         </div>
                                     {% endif %}
@@ -102,6 +95,13 @@
                 </div>
             {% endif %}
             </div>
+            {% if not dataEmpty %}
+                <ol class="carousel-indicators2">
+                {% for carousel in carousel %}
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{carousel.id|add:'-1'}}" class="{% if carousel.id == 1 %}active{% endif %}"></li>
+                {% endfor %}
+                </ol>
+            {% endif %}
         </div>
     </div>
 {% endblock body %}
