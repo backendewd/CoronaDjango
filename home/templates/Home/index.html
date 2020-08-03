@@ -96,7 +96,7 @@
             {% endif %}
             </div>
             {% if not dataEmpty %}
-                <ol class="carousel-indicators2">
+                <ol class="carousel-indicators">
                 {% for carousel in carousel %}
                         <li data-target="#carouselExampleIndicators" data-slide-to="{{carousel.id|add:'-1'}}" class="{% if carousel.id == 1 %}active{% endif %}"></li>
                 {% endfor %}
