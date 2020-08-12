@@ -20,8 +20,8 @@ def cekURLAPI(id):
 def navData():
     data = [
                 ['/', 'Home', 'icon-home'],
-                ['country/', 'Country', 'icon-flag'],
-                ['about/', 'About', 'icon-human']
+                ['/country/', 'Country', 'icon-flag'],
+                ['/about/', 'About', 'icon-human']
             ]
     return data;
 
