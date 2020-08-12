@@ -1,0 +1,102 @@
+{% extends 'formbase.html' %}
+
+{% block page_title %}
+    Corona Web
+{% endblock page_title %}
+
+{% block nav %}
+    <div id="mySidenav" class="sidenav">
+        <p class="title">Menu</p>
+        <hr width="100%" style="color: black">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        {% for url, name, icon in data %}
+            <a href="{{url}}">
+                <span class="icon {{icon}}"></span>
+                {{name}}
+            </a>
+        {% endfor %}
+    </div>
+    <nav class="navbar navbar-light bg-primary justify-content-between sticky-top" style="z-index: 1">
+        <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+        <span class="brand">
+            Corona Django
+        </span>
+    </nav>
+{% endblock nav %}
+
+{% block body %}
+    <div class="bg-primary pb-3" style="height: 500px;">
+        <div class="row ml-1 mr-1">
+        {% comment %} medium - large {% endcomment %}
+        {% for gejala in gejala  %}
+            <div class="col-md-3 d-none d-lg-block d-sm-none d-md-block">
+                <div class="card text-center r-50">
+                    <div class="card-header">
+                        <b style="color: red">Symptoms</b>
+                    </div>
+                    <div class="card-body font pl-2 pr-2">
+                        <img style="height: 300px; width: 100%" src="{{gejala.img}}" class="fit-img">
+                    </div>
+                    <div class="card-footer text-muted">
+                        <b style="color: red">{{gejala.title}}</b>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% comment %} medium - large {% endcomment %}
+        </div>
+        {% comment %} small {% endcomment %}
+        <div id="carouselExampleIndicators" class="carousel slide d-lg-none d-md-none d-sm-block" data-ride="carousel" style="margin: 0 auto; width: 350px">
+            <div class="carousel-inner">
+            {% for gejala in gejala %}
+                <div class="carousel-item {% if gejala.id == 1 %}active{% endif %}">
+                    <div class="card text-center r-50">
+                        <div class="card-header">
+                            <b style="color: red">Symptoms</b>
+                        </div>
+                        <div class="card-body font pl-2 pr-2">
+                            <img style="height: 300px; width: 100%" src="{{gejala.img}}" class="fit-img">
+                        </div>
+                        <div class="card-footer text-muted">
+                            <b style="color: red">{{gejala.title}}</b>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            <ol class="carousel-indicators">
+            {% for gejala in gejala %}
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{gejala.id|add:'-1'}}" class="{% if gejala.id == 1 %}active{% endif %}"></li>
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    {% block section2 %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card text-center r-50 box box-active">
+                    <a href="#">
+                        <div class="card-header">
+                            <b style="color: black;">Gejala COVID-19</b>
+                            <span class="icon float-right"><img src='https://www.svgrepo.com/show/90662/bookshelf.svg' class="img-fluid"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center r-50 box">
+                    <a href="/pencegahan/">
+                        <div class="card-header">
+                            <b style="color: black;">Pencegahan COID-19</b>
+                            <span class="icon float-right"><img src='https://www.svgrepo.com/show/255884/space.svg' class="img-fluid"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endblock section2 %}
+
+    <footer class="footer bg-primary font">Website Is Maked Only For Practice</footer>
+{% endblock body %}

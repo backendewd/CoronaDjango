@@ -75,7 +75,7 @@
                                     <h3 class="card-title" style="line-height: 0.3"><b>{{carousel.title}}</b></h3>
                                 </div>
                                 <div class="card-footer text-muted">
-                                    {{data.updated_at}}
+                                    {{coronaData.updated_at|slice:10}}
                                 </div>
                             </div>
                         {% endif %}
@@ -104,4 +104,31 @@
             {% endif %}
         </div>
     </div>
+
+    {% block section2 %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card text-center r-50 box">
+                    <a href="/gejala/">
+                        <div class="card-header">
+                            <b style="color: black;">Gejala COVID-19</b>
+                            <span class="icon float-right"><img src='https://www.svgrepo.com/show/90662/bookshelf.svg' class="img-fluid"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center r-50 box">
+                    <a href="/pencegahan/">
+                        <div class="card-header">
+                            <b style="color: black;">Pencegahan COID-19</b>
+                            <span class="icon float-right"><img src='https://www.svgrepo.com/show/255884/space.svg' class="img-fluid"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endblock section2 %}
+
+    <footer class="footer bg-primary font">Website Is Maked Only For Practice</footer>
 {% endblock body %}

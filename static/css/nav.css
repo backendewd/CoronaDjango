@@ -65,6 +65,10 @@
     background-size: cover;
   }
 
+  .fit-img{
+    object-fit: cover;
+  }
+
   .icon-home {
     background-image: url('https://www.svgrepo.com/show/22031/home-icon-silhouette.svg');
   }

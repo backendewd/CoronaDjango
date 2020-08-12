@@ -1,3 +1,25 @@
+html {
+  position: relative;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0 0 100px;
+}
+
+footer {
+  position: absolute;
+  color: white;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  padding-top: 15px;
+  overflow: hidden;
+}
+
 .center-v2{
     margin: 0;
     width: 50%;
@@ -59,6 +81,16 @@
   width: 70%;
 }
 
+.box{
+  margin-top: 10px;
+  box-shadow: -3px 2px 10px black;
+  transition: box-shadow 0.2s;
+}
+
+.box:hover, .box-active{
+  BOX-SHADOW: -3px 3px 20px #10A5f5;
+}
+
 .carousel-indicators2 {
   position: absolute;
   right: 0;
@@ -74,6 +106,7 @@
   margin-left: 15%;
   list-style: none;
 }
+
 
 @media screen and (max-width: 725px) {
   .center-v2{width: 70% !important}
