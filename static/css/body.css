@@ -4,10 +4,6 @@ html {
   overflow-x: hidden;
 }
 
-body {
-  margin: 0 0 100px;
-}
-
 footer {
   position: absolute;
   color: white;
